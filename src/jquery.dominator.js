@@ -37,9 +37,20 @@
                         margin:$(this).css('margin'),
                         padding:$(this).css('padding')
                     });
+                
+                //Canvas layer
+                $(this).parent().prepend('<canvas></canvas>');
+                $(this).parent().find('canvas')
+                    .attr('width',$(this).width())
+                    .attr('height',$(this).height())
+                    .css({
+                        position:'absolute',
+                        zIndex: 1000
+                        });
+                //$(this).prev().attr('width',$(this).width());
+                //$(this).prev().attr('height',$(this).height());
 
-                $(this).css({margin:0,padding:0});  //Remove Margin and Padding from child
-                $(this).css('display', 'none');   //hide each element on load
+                $(this).css({margin:0, padding:0, display:'none'});  //Remove Margin and Padding and Remove from Dom
 
                 plugin.settings.buildOrderArray.push($(this)); //Add Element to the end of the array to build
             });
@@ -76,6 +87,15 @@
 
         //animation function for the element
        var animateBuild = function(el, callback){
+
+                //Target this Canvas
+                el.parent().find('canvas').each(function(){
+                    var context = this.getContext('2d');
+                    if (context) {
+                        context.fillStyle   = '#AB45AB'; // Pinkypurply
+                        context.fillRect(0, 0, 150, 100);
+                    }
+                });
 
                 //Throw the animation sprites
                 el.parent().append("<div style='position:absolute;left:0;top:"+el.css('margin-top')+";background-color:green;width:30px;height:30px;'></div>");
