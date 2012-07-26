@@ -4,7 +4,7 @@
 </head>
 <body>
 	<style>
-		.block{width: 500px;height:100px; margin:5px;}
+		.block{width: 500px;height:100px; margin:5px;float: left;}
 		.grey{background-color:#454545}
 		.red{background-color:#FF0000}
 		.orange{background-color:#0000FF}
@@ -39,7 +39,7 @@
 </div>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
 <script>window.jQuery || document.write('<script src="lib/jquery-1.7.2.min.js"><\/script>')</script> 
 <script src="src/jquery.dominator.js"></script> 
 
@@ -47,7 +47,7 @@
 
 $(document).ready(function(){
 	var myDominator = new $.dominator($('#container'), {
-		concurrentBuilds: '3'
+		concurrentBuilds: '2'
 	});
 });
 
