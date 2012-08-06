@@ -7,6 +7,7 @@
 
         var defaults = {
             concurrentBuilds: 2,
+			animation: null,
             onSomeEvent: function() {}
         };
 
@@ -19,6 +20,11 @@
             plugin.el = el;
             plugin.settings.currentBuilds = 0;      //Current Number of Builds Occuring
             plugin.settings.buildOrderArray = [];   //Array to hold Elements to Build
+			if (options.animation) { 
+				//console.log("animation found. animating with: " + options.animation);
+				
+			}
+			
             el.children().each(function(){
                //hasPosition Fix:
                //if no absolute position, apply relative to ensure element hasPosition
@@ -89,20 +95,24 @@
        var animateBuild = function(el, callback){
 
                 //Target this Canvas
-                el.parent().find('canvas').each(function(){
+                /*el.parent().find('canvas').each(function(){
                     var context = this.getContext('2d');
                     if (context) {
                         context.fillStyle   = '#AB45AB'; // Pinkypurply
                         context.fillRect(0, 0, 150, 100);
-                    }
+                    }					
                 });
+				*/
+				//console.log(options.concurrentBuilds);
+				//console.log(options.animation);
+				
 
                 //Throw the animation sprites
                 el.parent().append("<div style='position:absolute;left:0;top:"+el.css('margin-top')+";background-color:green;width:30px;height:30px;'></div>");
                 el.parent().append("<div style='position:absolute;right:"+el.css('margin-right')+";top:"+el.css('margin-top')+";background-color:green;width:30px;height:30px;'></div>");
                 el.parent().append("<div style='position:absolute;bottom:"+el.css('margin-bottom')+";right:"+el.css('margin-right')+";background-color:green;width:30px;height:30px;'></div>");
                 el.parent().append("<div style='position:absolute;bottom:"+el.css('margin-bottom')+";left:"+el.css('margin-left')+";background-color:green;width:30px;height:30px;'></div>");
-                el.slideDown(function(){callback()});     //Basic Slide Down
+                el.slideDown(5000, function(){callback()});     //Basic Slide Down
 
         };
 

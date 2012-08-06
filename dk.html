@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>DOMinator jQuery Plugin</title>
+</head>
+<body>
+	<style>
+		.block{width: 300px;height:600px; margin:5px;float: left;}
+		.grey{background-color:#454545}
+		.red{background-color:#FF0000}
+		.orange{background-color:#0000FF}
+	</style>
+<h1>The DOMinator jQuery Plugin</h1>
+
+<p class="subhead">Building your page elements in the browser like a hallucinogenic dream.</p>
+
+<div id="container">
+	<div class="grey block"></div>
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
+<script>window.jQuery || document.write('<script src="lib/jquery-1.7.2.min.js"><\/script>')</script> 
+<script src="src/jquery.dominator.js"></script>
+<script src="src/mariodk.js"></script>
+
+<script>
+
+
+$(document).ready(function(){
+	var myDominator = new $.dominator($('#container'), {concurrentBuilds: '1', animation: 'mariodk'});
+	
+});
+
+</script>
+
+
+</body>
+</html>
