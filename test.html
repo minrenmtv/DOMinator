@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dominator Animation</title>
+<style>
+* { font-family:Verdana, Geneva, sans-serif; }
+body { background: #EFEFEF; }
+.panel { width: 500px; height: 300px; background: #09C; }
+</style>
+
+<script src="js/DominatorAnimation.js"></script>
+<script src="js/MarioAnimation.js"></script>
+<script src="js/LameAnimation.js"></script>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>
+function init() {
+	var target = document.getElementById("target");
+	
+	var ma = new MarioAnimation(target);
+	ma.init();
+	ma.start();
+	
+	var ma2 = new MarioAnimation(target);
+	ma2.init();
+	setTimeout(function() { ma2.start()}, 3000);
+	
+	var ma3 = new MarioAnimation(target);
+	ma3.init();
+	setTimeout(function() { ma3.start()}, 6000);
+	
+	var ma4 = new MarioAnimation(target);
+	ma4.init();
+	setTimeout(function() {  ma4.start()}, 9000);
+	
+	
+	
+	//var la = new LameAnimation(target);
+	//la.init();
+}
+
+</script>
+</head>
+
+<body onLoad="init()">
+<div id="wrapper">
+<h1>Dominator Animation</h1>
+<div class="panel" id="target"></div>
+</div>
+
+</body>
+</html>
